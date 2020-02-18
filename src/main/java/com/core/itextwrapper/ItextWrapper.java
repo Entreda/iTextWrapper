@@ -34,7 +34,13 @@ public class ItextWrapper {
 
   private static final String DATE_FORMAT = "MMMM dd yyyy";
 
-  public FileDTO populateFile(PDFDTO pdfDTO) throws DocumentException, IOException {
+  /**
+   * @param pdfDTO
+   * @return FileDTO
+   * @throws DocumentException
+   * @throws IOException
+   */
+  public FileDTO generatePDF(PDFDTO pdfDTO) throws DocumentException, IOException {
 
     String filePath =
         "pdftemp" + File.separator + pdfDTO.getReport() + "_" + UUID.randomUUID() + ".pdf";
@@ -151,6 +157,13 @@ public class ItextWrapper {
 
   }
 
+  /**
+   * @param header
+   * @param pdfData
+   * @return PdfTable
+   * @throws DocumentException
+   * @throws IOException
+   */
   private PdfPTable prepareCompliancePDFTable(List<String> header,
       List<Map<String, String>> pdfData) throws DocumentException, IOException {
     ClassLoader classLoader = getClass().getClassLoader();
@@ -239,6 +252,10 @@ public class ItextWrapper {
     return table;
   }
 
+  /**
+   * @param key
+   * @return true is given key is valid
+   */
   private boolean isValid(String key) {
     boolean isHeaderValid = false;
     if (!key.equalsIgnoreCase("Last Name") && !key.equalsIgnoreCase("First Name")
@@ -251,6 +268,13 @@ public class ItextWrapper {
 
   }
 
+  /**
+   * @param header
+   * @param data
+   * @return PdfTable
+   * @throws DocumentException
+   * @throws IOException
+   */
   private PdfPTable prepareEnrolledPDFTable(List<String> header, List<Map<String, String>> data)
       throws DocumentException, IOException {
     ClassLoader classLoader = getClass().getClassLoader();
