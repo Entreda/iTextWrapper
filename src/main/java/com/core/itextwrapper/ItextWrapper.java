@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.logging.Logger;
 
 import com.core.itextwrapper.dto.FileDTO;
 import com.core.itextwrapper.dto.PDFDTO;
@@ -22,12 +21,12 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
-import com.itextpdf.text.log.LoggerFactory;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * @author Aniket
  *
@@ -35,6 +34,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 public class ItextWrapper {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(ItextWrapper.class);
+
 
   private static final String DATE_FORMAT = "MMMM dd yyyy";
 
